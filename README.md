@@ -1,4 +1,4 @@
-# Cow wisdom web server
+# Wisecow-application server
 
 ## How to use?
 
