@@ -1,21 +1,14 @@
 # Cow wisdom web server
 
-## Prerequisites
-
-```
-sudo apt install fortune-mod cowsay -y
-```
-
 ## How to use?
 
 1. Run `./wisecow.sh`
 2. Point the browser to server port (default 4499)
 
-## What to expect?
-![wisecow](https://github.com/nyrahul/wisecow/assets/9133227/8d6bfde3-4a5a-480e-8d55-3fef60300d98)
 
 # Problem Statement
-Deploy the wisecow application as a k8s app
+ Wisecow on Kubernetes involves several steps, including containerizing the application, creating Kubernetes manifests, and deploying those manifests to a Kubernetes cluster. 
+
 
 ## Requirement
 1. Create Dockerfile for the image and corresponding k8s manifest to deploy in k8s env. The wisecow service should be exposed as k8s service.
@@ -24,5 +17,17 @@ Deploy the wisecow application as a k8s app
 
 ## Expected Artifacts
 1. Github repo containing the app with corresponding dockerfile, k8s manifest, any other artifacts needed.
-2. Github repo with corresponding github action.
-3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul, SujithKasireddy
+   
+## Deploy to Kubernetes Cluster
+Deploy these manifests to  Kubernetes cluster.
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+## Verify Deployment
+kubectl get deployments
+kubectl get services
+web browser to ensure the application is running with secure TLS communication.
+## Additional Considerations
+Secrets and ConfigMaps: Use Kubernetes Secrets and ConfigMaps for managing sensitive data and configuration.
+Scaling: Configure Horizontal Pod Autoscalers (HPA) for automatic scaling based on metrics.
+Monitoring and Logging: Implement monitoring (e.g., Prometheus) and logging (e.g., ELK stack) solutions to keep track of the application's health and performance.
+Persistent Storage: needs persistent storage, consider using PersistentVolume and PersistentVolumeClaim.
